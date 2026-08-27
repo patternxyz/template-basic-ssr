@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased;
+  }
+
+  a {
+    @apply transition-colors hover:text-blue-700;
+  }
+
+  nav a[aria-current="page"] {
+    @apply font-medium text-blue-700;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": false,
+    "outDir": "./test-dist",
+    "rootDir": ".",
+    "sourceMap": false
+  },
+  "include": [
+    "src/http-cache.middleware.ts",
+    "test/http-cache.middleware.spec.ts"
+  ],
+  "exclude": []
+}

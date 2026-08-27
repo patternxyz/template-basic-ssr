@@ -1,0 +1,28 @@
+{
+  "name": "ssr-app-template",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run build -w @app/shared && concurrently -n web,api -c cyan,green \"npm run dev:web\" \"npm run dev:api\"",
+    "dev:web": "npm run dev -w @app/web",
+    "dev:api": "npm run build -w @app/shared && npm run dev -w @app/api",
+    "build": "npm run build -w @app/shared && npm run build:web && npm run build:api",
+    "build:web": "npm run build -w @app/web",
+    "build:api": "npm run build -w @app/api",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run build -w @app/shared && npm run typecheck --workspaces --if-present",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3",
+    "typescript": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=22.22.0",
+    "npm": ">=10.9.0"
+  }
+}
